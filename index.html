@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJS</title>
+    <script src="./static/js/vue.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Monster vs You</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>v0.0.0</li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <center>
+                <div class="row">
+                    <div class="col-md">
+                        <h1>You</h1>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100" :style="{width: playerHealth + '%'}">{{playerHealth}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <h1>Monster</h1>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                aria-valuemax="100" :style="{width: monsterHealth + '%'}">{{monsterHealth}}</div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card">
+                            <div class="card-body">
+                                <section v-if="!gameIsRunning">
+
+                                    <button @click="startGame" type="button" class="btn btn-primary btn-lg">START NEW GAME</button>
+
+                                </section>
+
+                                <section v-else>
+                                    <div class="row">
+                                        <div class="col-md">
+
+                                            <button @click="attack" class="btn btn-danger">ATTACK</button>
+
+                                            <button @click="specialAttack" class="btn btn-primary">SPECIAL ATTCAK</button>
+
+                                            <button @click="heal" class="btn btn-success">HEAL</button>
+
+                                            <button @click="giveUp" class="btn btn-dark">GIVE UP</button>
+
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Game info</h3>
+                                <ul class="list-group" v-if="gameIsRunning">
+                                    <li v-for="turn in turns" v-bind:class="[turn.isPlayer ? 'list-group-item list-group-item-primary': 'list-group-item list-group-item-danger']" >{{turn.text}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </center>
+        </div>
+
+
+    </div>
+
+
+    <script src="static/js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
