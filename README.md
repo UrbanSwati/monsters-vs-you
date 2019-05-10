@@ -1,4 +1,5 @@
 # Monster vs You!
+Click [here](https://urbanswati.github.io/monsters-vs-you/) to play game
 
 ## Intoduction
 Monster vs You is a web application where you fight a monster,
